@@ -49,6 +49,8 @@
     z-index: 9999;
     box-shadow: 0 0 15px rgb(255, 113, 113);
 }
+  
+
 a:hover ~ .cursor,
 button:hover ~ .cursor {
     transform: scale(2);
@@ -413,6 +415,9 @@ button:hover ~ .cursor {
     font-size: 0.85rem; color: var(--muted);
   }
   .footer-credit { font-size: 0.78rem; color: rgba(240,240,255,0.25); }
+  .photo-mobile{
+      display: none;
+  }
 
   /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 6px; }
@@ -433,8 +438,25 @@ button:hover ~ .cursor {
     .contact-grid { grid-template-columns: 1fr; }
     .page { padding: 0 20px; }
     .edu-item { grid-template-columns: 100px 1px 1fr; gap: 0 16px; }
-    .avatar-inner{
-      
+    .photo-mobile{
+      display: flex;
+      margin: auto;
+    }
+    #hire-me {
+      width: auto;
+      height: auto;
+      padding: 8px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hire-me-text {
+      color: #ffffffc7 !important;
+      white-space: nowrap;
+    }
+    .nav-links{
+      gap: 26px;
     }
   }
 </style>
@@ -450,7 +472,7 @@ button:hover ~ .cursor {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
-    <li class="btn-primary2"style="color: white;!important"><a href="#contact">Hire Me</a></li>
+    <li class="btn-primary2" id="hire-me"><a href="#contact" id="hire-me-text">Hire Me</a></li>
   </ul>
 
 </nav>
@@ -459,6 +481,7 @@ button:hover ~ .cursor {
 <div class="page">
   <section class="hero">
     <div class="hero-left">
+      <img src="Images/WhatsApp Image 2026-05-12 at 10.37.59 PM.jpeg" alt="" class="photo-mobile" draggable="false" style="margin: auto; width: 150px; border: solid 2px rgba(255, 255, 255, 0.527); border-radius: 500px; box-shadow: 0px 0px 15px rgba(118, 80, 255, 0.568);">
       <div class="hero-eyebrow">Available for opportunities</div>
       <h1 class="hero-name">
         Shazidul<br>
@@ -489,7 +512,7 @@ button:hover ~ .cursor {
     <div class="hero-right">
       <div class="avatar-frame">
         <div class="avatar-ring">
-          <div class="avatar-inner"><img src="Images/WhatsApp Image 2026-05-12 at 10.37.59 PM.jpeg" alt="" style="width: 500px; margin-right: 70px;"></div>
+          <div class="avatar-inner"><img src="Images/WhatsApp Image 2026-05-12 at 10.37.59 PM.jpeg" alt="" style="width: 500px; margin-right: 70px;" draggable="false"></div>
         </div>
         <div class="badge-float top-right">
           <div class="badge-icon">🏆</div>
