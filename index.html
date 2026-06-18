@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none;}
 
   :root {
     --navy:    #080C1A;
@@ -33,6 +33,26 @@
     overflow-x: hidden;
     line-height: 1.6;
   }
+
+.cursor {
+    width: 10px;
+    height: 10px;
+    /* border: 2px solid white; */
+    background-color: white;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out;
+    z-index: 9999;
+    box-shadow: 0 0 15px rgb(255, 113, 113);
+}
+a:hover ~ .cursor,
+button:hover ~ .cursor {
+    transform: scale(2);
+}
 
   /* ── AMBIENT BACKGROUND ── */
   body::before {
@@ -73,7 +93,7 @@
     background: var(--indigo); color: #ffffff;
     border: none; border-radius: 100px;
     padding: 10px 24px; font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    font-size: 0.85rem; font-weight: 600;
     transition: opacity 0.2s;
   }
   .nav-cta:hover { opacity: 0.85; }
@@ -153,7 +173,7 @@
     background: linear-gradient(135deg, var(--indigo), #8B5CF6);
     color: #ffffff; border: none; border-radius: 100px;
     padding: 14px 32px; font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem; font-weight: 600; cursor: pointer;
+    font-size: 0.9rem; font-weight: 600;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 0 30px rgba(91,95,239,0.35);
   }
@@ -164,7 +184,7 @@
     color: #ffffff !important;
     border: none; border-radius: 100px;
     padding: 14px 32px; font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem; font-weight: 600; cursor: pointer;
+    font-size: 0.9rem; font-weight: 600;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 0 30px rgba(91,95,239,0.35);
   }
@@ -174,7 +194,7 @@
     background: transparent; color: var(--muted);
     border: 1px solid var(--border); border-radius: 100px;
     padding: 14px 32px; font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem; font-weight: 500; cursor: pointer;
+    font-size: 0.9rem; font-weight: 500;
     transition: color 0.2s, border-color 0.2s;
   }
   .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
@@ -255,7 +275,6 @@
     display: flex; flex-direction: column; align-items: center;
     gap: 12px; text-align: center;
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-    cursor: default;
   }
   .skill-card:hover {
     border-color: rgba(91,95,239,0.4);
@@ -329,7 +348,7 @@
     flex: 1; width: 1px; background: var(--border); margin-top: 8px;
   }
   .edu-item:last-child .edu-connector { display: none; }
-  .edu-school { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+  .edu-school { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; color: white; text-decoration: none;}
   .edu-degree { font-size: 0.88rem; color: var(--muted); margin-bottom: 10px; }
   .edu-gpa {
     display: inline-block;
@@ -339,7 +358,7 @@
   }
 
   /* ── WORK EXP ── */
-  .work-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .work-cards { display: grid; grid-template-columns:  2fr; gap: 20px; }
   .work-card {
     background: var(--glass); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 32px 28px;
@@ -414,10 +433,15 @@
     .contact-grid { grid-template-columns: 1fr; }
     .page { padding: 0 20px; }
     .edu-item { grid-template-columns: 100px 1px 1fr; gap: 0 16px; }
+    .avatar-inner{
+      
+    }
   }
 </style>
 </head>
 <body>
+
+<div class="cursor"></div>
 
 <!-- NAV -->
 <nav>
@@ -458,8 +482,8 @@
         </div> -->
       </div>
       <div class="hero-actions">
-        <button class="btn-primary">View Projects</button>
-        <button class="btn-ghost">Download CV</button>
+        <a href="#projects" class="btn-primary" style="text-decoration: none;">View Projects</a>
+        <a href="Shazidul_Islam_CV.pdf" target="_blank" class="btn-ghost" style="text-decoration: none;">Download CV</a>
       </div>
     </div>
     <div class="hero-right">
@@ -491,7 +515,7 @@
       <span class="section-tag">Expertise</span>
       <div class="section-line"></div>
     </div>
-    <h2 class="section-title">Skills & Tools</h2>
+    <h2 class="section-title">Expertise</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/C++.png" alt="" style="width: 50px;"></div>
@@ -565,6 +589,56 @@
     </div>
   </section>
 
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-tag">Tools USED</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 class="section-title">Tools Used</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/C++.png" alt="" style="width: 50px;"></div>
+        <div class="skill-name">C++</div>
+        <div class="skill-type">Object-Oriented</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/java-logo-1.png" alt="" style="width: 50px;"></div>
+        <div class="skill-name">Java</div>
+        <div class="skill-type">Platform Independence</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/PHP-logo.png" alt="" style="width: 50px;"></div>
+        <div class="skill-name">PHP</div>
+        <div class="skill-type">Web Development</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/JavaScript-logo.png" alt="" style="width: 50px; border-radius: 10px;"></div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-type">Interactivity</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"style="background: none; background-color: transparent !important;"><img src="Images/nextjs-icon.png" alt="" style="width: 50px;"></div>
+        <div class="skill-name">Next.js</div>
+        <div class="skill-type">Backend / Fullstack</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/Mysql.png" alt="" style="width: 50px;"></div>
+        <div class="skill-name">MySQL</div>
+        <div class="skill-type">Relational Database</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/Figma-logo.png" alt="" style="width: 30px;"></div>
+        <div class="skill-name">Figma</div>
+        <div class="skill-type">Design Tool</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background: none; background-color: transparent !important;"><img src="Images/framer_logo_icon_169149.png" alt="" style="width: 35px;"></div>
+        <div class="skill-name">Framer</div>
+        <div class="skill-type">Website Builder</div>
+      </div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-header">
@@ -580,7 +654,7 @@
           <div class="edu-connector"></div>
         </div>
         <div>
-          <div class="edu-school">United International University</div>
+          <div class="edu-school"><a href="https://www.uiu.ac.bd/" target="_blank" style="color: rgba(255, 255, 255, 0.7) !important; text-decoration: none !important;">United International University</a></div>
           <div class="edu-degree">Bachelor of Science in Computer Science & Engineering</div>
           <span class="edu-gpa">Currently Enrolled</span>
         </div>
@@ -592,7 +666,7 @@
           <div class="edu-connector"></div>
         </div>
         <div>
-          <div class="edu-school">Adamjee Cantonment College</div>
+          <div class="edu-school"><a href="https://acc.edu.bd/" target="_blank" style="color: rgba(255, 255, 255, 0.7) !important; text-decoration: none !important;">Adamjee Cantonment College</a></div>
           <div class="edu-degree">Higher Secondary Certificate (HSC) · Science</div>
           <span class="edu-gpa">GPA 5.00</span>
         </div>
@@ -604,7 +678,7 @@
           <div class="edu-connector"></div>
         </div>
         <div>
-          <div class="edu-school">Adamjee Cant. Public School</div>
+          <div class="edu-school"><a href="https://acc.edu.bd/" target="_blank" style="color: rgba(255, 255, 255, 0.7) !important; text-decoration: none !important;">Adamjee Cant. Public School</a></div>
           <div class="edu-degree">Secondary School Certificate (SSC) · Science</div>
           <span class="edu-gpa">GPA 5.00</span>
         </div>
@@ -625,6 +699,12 @@
         <div class="work-org">Dept. of CSE · United International University</div>
         <p class="work-desc">Evaluated assignments, supported course activities, and helped maintain academic quality under the CSE Department. Strengthened communication, responsibility, and teamwork in an academic environment.</p>
       </div>
+    </div>
+    <div class="section-header">
+
+    </div>
+    <h2 class="section-title">Extra-Curricular Activities</h2>
+    <div class="work-cards">
       <div class="work-card">
         <div class="work-role">Head of Department</div>
         <div class="work-org">Marketing & Branding · Dec 2023</div>
@@ -632,6 +712,8 @@
       </div>
     </div>
   </section>
+  <div class="section-line"></div>
+
 
   <!-- CONTACT -->
   <section id="contact">
@@ -677,10 +759,17 @@
   </section>
 
   <footer>
-    <div class="footer-name">© 2024 Shazidul Islam</div>
-    <div class="footer-credit">Designed with intention · Built with code</div>
+    <div class="footer-name" style="display: flex; margin: auto;">© 2026 Shazidul Islam</div>
   </footer>
 </div>
 
 </body>
+<script>
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+</script>
 </html>
